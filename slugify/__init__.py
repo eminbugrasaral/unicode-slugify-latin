@@ -52,8 +52,8 @@ def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False):
         cat = unicodedata.category(c)[0]
         if cat in 'LN' or c in ok:
             rv.append(c)
-        if c in SLUG_REPLACE:
-            rv.append('-')
+        elif c in SLUG_REPLACE:
+            rv.append('')
         if cat == 'Z':  # space
             rv.append(' ')
     new = ''.join(rv).strip()
