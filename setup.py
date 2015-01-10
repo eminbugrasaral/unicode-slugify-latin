@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='unicode-slugify-turkish',
-    version='0.1.3',
+    version='0.1.5',
     description='A slug generator that turns strings into unicode slugs, and enables replacement for common Turkish latin letters into ascii representations.',
     long_description=open('README.md').read(),
     keywords='turkish,unicode,letter,char,replace,replacement,ascii,latin',
