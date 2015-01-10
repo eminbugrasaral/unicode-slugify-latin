@@ -29,12 +29,28 @@ SLUG_OK = '-_~'
 SLUG_REPLACE = ':;/'
 
 TURKISH_LETTERS = {
-    'keys': [u'\u0131', u'\u015f', u'\xe7', u'\u011f', u'\xf6', u'\xfc'],
+    'keys': [unicode('\u0131'),
+             unicode('\u015f', errors='replace'),
+             unicode('\xe7', errors='replace'),
+             unicode('\u011f', errors='replace'),
+             unicode('\xf6', errors='replace'),
+             unicode('\xfc', errors='replace')],
     'values': ['i', 's', 'c', 'g', 'o', 'u']
 }
 
 ALL_TURKISH_LETTERS = {
-    'keys': [u'\u0131', u'\u0130', u'\u015f', u'\u015e', u'\xe7', u'\xc7', u'\u011f', u'\u011e', u'\xf6', u'\xd6', u'\xfc', u'\xdc'],
+    'keys': [unicode('\u0131', errors='replace'),
+             unicode('\u0130', errors='replace'),
+             unicode('\u015f', errors='replace'),
+             unicode('\u015e', errors='replace'),
+             unicode('\xe7', errors='replace'),
+             unicode('\xc7', errors='replace'),
+             unicode('\u011f', errors='replace'),
+             unicode('\u011e', errors='replace'),
+             unicode('\xf6', errors='replace'),
+             unicode('\xd6', errors='replace'),
+             unicode('\xfc', errors='replace'),
+             unicode('\xdc', errors='replace')],
     'values': ['i', 'I', 's', 'S', 'c', 'C', 'g', 'G', 'o', 'O' 'u', 'U']
 }
 
@@ -61,10 +77,10 @@ def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False):
         if lower:
             for letter in TURKISH_LETTERS['keys']:
                 new_letter = TURKISH_LETTERS['values'][TURKISH_LETTERS['keys'].index(letter)]
-                result = result.replace(letter, new_letter)
+                result = result.replace(unicode(letter, errors='replace'), new_letter)
         else:
             for letter in ALL_TURKISH_LETTERS:
                 new_letter = ALL_TURKISH_LETTERS['values'][ALL_TURKISH_LETTERS['keys'].index(letter)]
-                result = result.replace(letter, new_letter)
+                result = result.replace(unicode(letter, errors='replace'), new_letter)
 
     return result
