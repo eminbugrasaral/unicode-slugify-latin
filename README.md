@@ -58,6 +58,10 @@ required more than simple transliteration.
 - ü -> u
 - Ü -> U
 
+## TODO
+
+- Tests for Turkih hack is missing.
+
 ## Contact
 
 - Website: http://www.eminbugrasaral.com/
