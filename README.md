@@ -39,6 +39,9 @@ required more than simple transliteration.
     
     >>> slugify.slugify(u'çiçek', replace_turkish=True) in slugify.slugify(u'ÇİÇEK', replace_turkish=True)
     True
+    
+    >>> u'cicek' in slugify.slugify(u'ÇİÇEK', replace_turkish=True)
+    True
 
 ## List of common Turkish latin letters to be replaced
 
