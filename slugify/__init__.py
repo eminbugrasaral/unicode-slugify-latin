@@ -28,56 +28,15 @@ SLUG_OK = '-_~'
 
 SLUG_REPLACE = ':;/'
 
-import sys
+TURKISH_LETTERS = {
+    'keys': [u'\u0131', u'\u015f', u'\xe7', u'\u011f', u'\xf6', u'\xfc'],
+    'values': ['i', 's', 'c', 'g', 'o', 'u']
+}
 
-if sys.version_info[0] == 3:
-    TURKISH_LETTERS = {
-        'ı': 'i',
-        'ş': 's',
-        'ç': 'c',
-        'ğ': 'g',
-        'ö': 'o',
-        'ü': 'u'
-    }
-
-    ALL_TURKISH_LETTERS = {
-        'ı': 'i',
-        'İ': 'I',
-        'ş': 's',
-        'Ş': 'S',
-        'ç': 'c',
-        'Ç': 'C',
-        'ğ': 'g',
-        'Ğ': 'G',
-        'ö': 'o',
-        'Ö': 'O',
-        'ü': 'u',
-        'U': 'U'
-    }
-else:
-    TURKISH_LETTERS = {
-        u'\u0131': 'i',
-        u'\u015f': 's',
-        u'\xe7': 'c',
-        u'\u011f': 'g',
-        u'\xf6': 'o',
-        u'\xfc': 'u'
-    }
-
-    ALL_TURKISH_LETTERS = {
-        u'\u0131': 'i',
-        u'\u0130': 'I',
-        u'\u015f': 's',
-        u'\u015e': 'S',
-        u'\xe7': 'c',
-        u'\xc7': 'C',
-        u'\u011f': 'g',
-        u'\u011e': 'G',
-        u'\xf6': 'o',
-        u'\xd6': 'O',
-        u'\xfc': 'u',
-        u'\xdc': 'U'
-    }
+ALL_TURKISH_LETTERS = {
+    'keys': [u'\u0131', u'\u0130', u'\u015f', u'\u015e', u'\xe7', u'\xc7', u'\u011f', u'\u011e', u'\xf6', u'\xd6', u'\xfc', u'\xdc'],
+    'values': ['i', 'I', 's', 'S', 'c', 'C', 'g', 'G', 'o', 'O' 'u', 'U']
+}
 
 def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False):
     # L and N signify letter/number.
@@ -100,10 +59,12 @@ def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False):
     # Turkish hack
     if replace_turkish:
         if lower:
-            for letter in TURKISH_LETTERS:
-                result = result.replace(letter, TURKISH_LETTERS[letter])
+            for letter in TURKISH_LETTERS['keys']:
+                new_letter = TURKISH_LETTERS['values'][TURKISH_LETTERS['keys'].index(letter)]
+                result = result.replace(letter, new_letter)
         else:
             for letter in ALL_TURKISH_LETTERS:
-                result = result.replace(letter, TURKISH_LETTERS[letter])
+                new_letter = ALL_TURKISH_LETTERS['values'][ALL_TURKISH_LETTERS['keys'].index(letter)]
+                result = result.replace(letter, new_letter)
 
     return result
