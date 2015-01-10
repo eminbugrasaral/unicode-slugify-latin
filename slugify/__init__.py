@@ -29,29 +29,27 @@ SLUG_OK = '-_~'
 SLUG_REPLACE = ':;/'
 
 TURKISH_LETTERS = {
-    'keys': [unicode('\u0131'),
-             unicode('\u015f', errors='replace'),
-             unicode('\xe7', errors='replace'),
-             unicode('\u011f', errors='replace'),
-             unicode('\xf6', errors='replace'),
-             unicode('\xfc', errors='replace')],
-    'values': ['i', 's', 'c', 'g', 'o', 'u']
+    u'\u0131': 'i',
+    u'\u015f': 's',
+    u'\xe7': 'c',
+    u'\u011f': 'g',
+    u'\xf6': 'o',
+    u'\xfc': 'u'
 }
 
 ALL_TURKISH_LETTERS = {
-    'keys': [unicode('\u0131', errors='replace'),
-             unicode('\u0130', errors='replace'),
-             unicode('\u015f', errors='replace'),
-             unicode('\u015e', errors='replace'),
-             unicode('\xe7', errors='replace'),
-             unicode('\xc7', errors='replace'),
-             unicode('\u011f', errors='replace'),
-             unicode('\u011e', errors='replace'),
-             unicode('\xf6', errors='replace'),
-             unicode('\xd6', errors='replace'),
-             unicode('\xfc', errors='replace'),
-             unicode('\xdc', errors='replace')],
-    'values': ['i', 'I', 's', 'S', 'c', 'C', 'g', 'G', 'o', 'O' 'u', 'U']
+    u'\u0131': 'i',
+    u'\u0130': 'I',
+    u'\u015f': 's',
+    u'\u015e': 'S',
+    u'\xe7': 'c',
+    u'\xc7': 'C',
+    u'\u011f': 'g',
+    u'\u011e': 'G',
+    u'\xf6': 'o',
+    u'\xd6': 'O',
+    u'\xfc': 'u',
+    u'\xdc': 'U'
 }
 
 def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False):
@@ -74,18 +72,11 @@ def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False):
 
     # Turkish hack
     if replace_turkish:
-
-        result = unicode(result)
         if lower:
-            for letter in TURKISH_LETTERS['keys']:
-                new_letter = TURKISH_LETTERS['values'][TURKISH_LETTERS['keys'].index(letter)]
-                result = result.replace(letter, new_letter)
+            for letter in TURKISH_LETTERS:
+                result = result.replace(letter, TURKISH_LETTERS[letter])
         else:
             for letter in ALL_TURKISH_LETTERS:
-                new_letter = ALL_TURKISH_LETTERS['values'][ALL_TURKISH_LETTERS['keys'].index(letter)]
-                result = result.replace(letter, new_letter)
-
-        # Clear out errors with an underscore
-        result = result.replace('\ufffd', '_')
+                result = result.replace(letter, TURKISH_LETTERS[letter])
 
     return result
