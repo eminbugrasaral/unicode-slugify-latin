@@ -21,7 +21,9 @@ required more than simple transliteration.
 - Example: Strore "Sabancı Üniversitesi" as "sabanci-universitesi" and then users will be able to search with any combination.
 - Note: Do not forget to slugify both string with replace_turkish=True
 
-     >>> import slugify
+## Example
+
+    >>> import slugify
 
     >>> string_without_turkish = slugify.slugify(u'ıspanaklı boğaz turşusu', replace_turkish=True)
     u'ispanakli-bogaz-tursusu'
@@ -33,16 +35,17 @@ required more than simple transliteration.
     True
 
 
-- List of Turkish character replacements:
--- ı -> i
--- İ -> I
--- ş -> s
--- Ş -> S
--- ç -> c
--- Ç -> C
--- ğ -> g
--- Ğ -> G
--- ö -> o
--- Ö -> O
--- ü -> u
--- Ü -> U
+## List of common Turkish latin letters to be replaced
+
+- ı -> i
+- İ -> I
+- ş -> s
+- Ş -> S
+- ç -> c
+- Ç -> C
+- ğ -> g
+- Ğ -> G
+- ö -> o
+- Ö -> O
+- ü -> u
+- Ü -> U
