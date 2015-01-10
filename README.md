@@ -12,6 +12,9 @@ required more than simple transliteration.
     >>> slugify.slugify(u'Bän...g (bang)')
     u'bäng-bang'
 
+## Install
+
+    pip install unicode-slugify-turkish
 
 ## Turkish Hack
 
