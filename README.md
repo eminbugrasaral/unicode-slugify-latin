@@ -60,7 +60,7 @@ required more than simple transliteration.
 
 ## TODO
 
-- Tests for Turkih hack is missing.
+- Tests for Turkish hack is missing.
 
 ## Contact
 
