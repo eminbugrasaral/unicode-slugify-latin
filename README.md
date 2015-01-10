@@ -5,16 +5,16 @@ used in the Firefox Add-ons web site to generate slugs for add-ons and add-on
 collections.  Many of these add-ons and collections had unicode characters and
 required more than simple transliteration.
 
+## Install
+
+    pip install unicode-slugify-turkish
+
 ## Usage
 
     >>> import slugify
 
     >>> slugify.slugify(u'Bän...g (bang)')
     u'bäng-bang'
-
-## Install
-
-    pip install unicode-slugify-turkish
 
 ## Turkish Hack
 
@@ -34,9 +34,11 @@ required more than simple transliteration.
     >>> slugify.slugify(u'Ispanakli Bogaz Tursusu') == string_without_turkish
     True
 
-    >>> u'Bogazici'.lower() in slugify.slugify(u'boğaziçi', replace_turkish=true)
+    >>> u'Bogazici'.lower() in slugify.slugify(u'boğaziçi', replace_turkish=True)
     True
-
+    
+    >>> slugify.slugify(u'çiçek', replace_turkish=True) in slugify.slugify(u'ÇİÇEK', replace_turkish=True)
+    True
 
 ## List of common Turkish latin letters to be replaced
 
