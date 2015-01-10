@@ -5,7 +5,7 @@ setup(
     version='0.1.5',
     description='A slug generator that turns strings into unicode slugs, and enables replacement for common Turkish latin letters into ascii representations.',
     long_description=open('README.md').read(),
-    keywords='turkish,unicode,letter,char,replace,replacement,ascii,latin',
+    keywords='turkish,unicode,letter,char,replace,replacement,ascii,latin,django',
     author='Jeff Balogh, Dave Dash, Emin Bugra Saral',
     author_email='jbalogh@mozilla.com, dd@mozilla.com, eminbugrasaral@me.com',
     maintainer='Emin Bugra Saral',

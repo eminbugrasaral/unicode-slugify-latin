@@ -26,21 +26,21 @@ required more than simple transliteration.
 
 ## Example
 
-    >>> import slugify
+    >>> from slugify import slugify
 
-    >>> string_without_turkish = slugify.slugify(u'ıspanaklı boğaz turşusu', replace_turkish=True)
+    >>> string_without_turkish = slugify(u'ıspanaklı boğaz turşusu', replace_turkish=True)
     u'ispanakli-bogaz-tursusu'
 
-    >>> slugify.slugify(u'Ispanakli Bogaz Tursusu') == string_without_turkish
+    >>> slugify(u'Ispanakli Bogaz Tursusu') == string_without_turkish
     True
 
-    >>> u'Bogazici'.lower() in slugify.slugify(u'boğaziçi', replace_turkish=True)
+    >>> u'Bogazici'.lower() in slugify(u'boğaziçi', replace_turkish=True)
     True
     
-    >>> slugify.slugify(u'çiçek', replace_turkish=True) in slugify.slugify(u'ÇİÇEK', replace_turkish=True)
+    >>> slugify(u'çiçek', replace_turkish=True) in slugify(u'ÇİÇEK', replace_turkish=True)
     True
     
-    >>> u'cicek' in slugify.slugify(u'ÇİÇEK', replace_turkish=True)
+    >>> u'cicek' in slugify(u'ÇİÇEK', replace_turkish=True)
     True
 
 ## List of common Turkish latin letters to be replaced
