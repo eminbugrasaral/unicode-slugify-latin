@@ -66,6 +66,7 @@ required more than simple transliteration.
 ## Sponsors
 
 - This library is being used in The Volt Ride Sharing App (www.thevoltapp.com)
+- Hippo Foundry (http://hipolabs.com)
 
 ## Contact
 
