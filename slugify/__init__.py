@@ -28,29 +28,56 @@ SLUG_OK = '-_~'
 
 SLUG_REPLACE = ':;/'
 
-TURKISH_LETTERS = {
-    u'\u0131': 'i',
-    u'\u015f': 's',
-    u'\xe7': 'c',
-    u'\u011f': 'g',
-    u'\xf6': 'o',
-    u'\xfc': 'u'
-}
+import sys
 
-ALL_TURKISH_LETTERS = {
-    u'\u0131': 'i',
-    u'\u0130': 'I',
-    u'\u015f': 's',
-    u'\u015e': 'S',
-    u'\xe7': 'c',
-    u'\xc7': 'C',
-    u'\u011f': 'g',
-    u'\u011e': 'G',
-    u'\xf6': 'o',
-    u'\xd6': 'O',
-    u'\xfc': 'u',
-    u'\xdc': 'U'
-}
+if sys.version_info[0] == 3:
+    TURKISH_LETTERS = {
+        'ı': 'i',
+        'ş': 's',
+        'ç': 'c',
+        'ğ': 'g',
+        'ö': 'o',
+        'ü': 'u'
+    }
+
+    ALL_TURKISH_LETTERS = {
+        'ı': 'i',
+        'İ': 'I',
+        'ş': 's',
+        'Ş': 'S',
+        'ç': 'c',
+        'Ç': 'C',
+        'ğ': 'g',
+        'Ğ': 'G',
+        'ö': 'o',
+        'Ö': 'O',
+        'ü': 'u',
+        'U': 'U'
+    }
+else:
+    TURKISH_LETTERS = {
+        u'\u0131': 'i',
+        u'\u015f': 's',
+        u'\xe7': 'c',
+        u'\u011f': 'g',
+        u'\xf6': 'o',
+        u'\xfc': 'u'
+    }
+
+    ALL_TURKISH_LETTERS = {
+        u'\u0131': 'i',
+        u'\u0130': 'I',
+        u'\u015f': 's',
+        u'\u015e': 'S',
+        u'\xe7': 'c',
+        u'\xc7': 'C',
+        u'\u011f': 'g',
+        u'\u011e': 'G',
+        u'\xf6': 'o',
+        u'\xd6': 'O',
+        u'\xfc': 'u',
+        u'\xdc': 'U'
+    }
 
 def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False):
     # L and N signify letter/number.
