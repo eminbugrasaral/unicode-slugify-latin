@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/eminbugrasaral/unicode-slugify-turkish.svg?branch=master)](https://travis-ci.org/eminbugrasaral/unicode-slugify-turkish)
+
 # Unicode Slugify (with Turkish Hack)
 
 Unicode Slugify is a slugifier that generates unicode slugs.  It was originally
