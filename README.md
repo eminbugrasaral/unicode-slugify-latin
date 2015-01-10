@@ -18,7 +18,7 @@ required more than simple transliteration.
 - Replaces special Turkish chars with similar ascii codes.
 - Problem: I want Turkish users with English keyboards to be able to search through my Turkish strings.
 - Solution: Slugify that Turkish string by enabling Turkish replacement, and match this string with the slugified search word.
-- Example: Strore "Sabancı Üniversitesi" as "sabanci-universitesi" and then users will be able to search with any combination.
+- Example: Strore "Sabancı Üniversitesi" as "sabanci-universitesi" and then users will be able to search with any combination like "Sabanci", "Sabancı" and "SABANCI".
 - Note: Do not forget to slugify both string with replace_turkish=True
 
 ## Example
