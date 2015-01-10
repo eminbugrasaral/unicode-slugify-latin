@@ -1,13 +1,13 @@
 from setuptools import setup
 
 setup(
-    name='unicode-slugify',
+    name='unicode-slugify-turkish',
     version='0.1.2',
-    description='A slug generator that turns strings into unicode slugs.',
+    description='A slug generator that turns strings into unicode slugs and enables replacement for common Turkish latin letters into ascii representations.',
     long_description=open('README.md').read(),
-    author='Jeff Balogh, Dave Dash',
-    author_email='jbalogh@mozilla.com, dd@mozilla.com',
-    url='http://github.com/mozilla/unicode-slugify',
+    author='Jeff Balogh, Dave Dash, Emin Bugra Saral',
+    author_email='jbalogh@mozilla.com, dd@mozilla.com, eminbugrasaral@me.com',
+    url='http://github.com/eminbugrasaral/unicode-slugify-turkish',
     license='BSD',
     packages=['slugify'],
     include_package_data=True,
