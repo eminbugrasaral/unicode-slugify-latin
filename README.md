@@ -62,6 +62,11 @@ required more than simple transliteration.
 
 - Tests for Turkish hack is missing.
 
+
+## Sponsors
+
+- This library is being used in The Volt Ride Sharing App (www.thevoltapp.com)
+
 ## Contact
 
 - Website: http://www.eminbugrasaral.com/
