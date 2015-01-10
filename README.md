@@ -70,4 +70,4 @@ required more than simple transliteration.
 
 ## Contact
 
-- Website: http://www.eminbugrasaral.com/
+- Website: http://www.eminbugrasaral.com
