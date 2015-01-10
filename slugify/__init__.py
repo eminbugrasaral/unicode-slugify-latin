@@ -74,13 +74,18 @@ def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False):
 
     # Turkish hack
     if replace_turkish:
+
+        result = unicode(result)
         if lower:
             for letter in TURKISH_LETTERS['keys']:
                 new_letter = TURKISH_LETTERS['values'][TURKISH_LETTERS['keys'].index(letter)]
-                result = result.replace(unicode(letter, errors='replace'), new_letter)
+                result = result.replace(letter, new_letter)
         else:
             for letter in ALL_TURKISH_LETTERS:
                 new_letter = ALL_TURKISH_LETTERS['values'][ALL_TURKISH_LETTERS['keys'].index(letter)]
-                result = result.replace(unicode(letter, errors='replace'), new_letter)
+                result = result.replace(letter, new_letter)
+
+        # Clear out errors with an underscore
+        result = result.replace('\ufffd', '_')
 
     return result
