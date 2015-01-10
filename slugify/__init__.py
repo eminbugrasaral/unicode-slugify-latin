@@ -77,6 +77,6 @@ def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False):
                 result = result.replace(letter, TURKISH_LETTERS[letter])
         else:
             for letter in ALL_TURKISH_LETTERS:
-                result = result.replace(letter, TURKISH_LETTERS[letter])
+                result = result.replace(letter, ALL_TURKISH_LETTERS[letter])
 
     return result
