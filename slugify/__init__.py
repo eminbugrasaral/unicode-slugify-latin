@@ -52,7 +52,7 @@ ALL_TURKISH_LETTERS = {
     u'\xdc': 'U'
 }
 
-def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False, unicode_pair=None):
+def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False, unicode_pairs=None):
     # L and N signify letter/number.
     # http://www.unicode.org/reports/tr44/tr44-4.html#GC_Values_Table
 
@@ -80,8 +80,8 @@ def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False, unic
                 result = result.replace(letter, ALL_TURKISH_LETTERS[letter])
 
     # Replace with pair dictionary
-    if unicode_pair and isinstance(unicode_pair, dict):
-        for letter in unicode_pair:
-            result = result.replace(letter, unicode_pair[letter])
+    if unicode_pairs and isinstance(unicode_pairs, dict):
+        for char in unicode_pairs:
+            result = result.replace(char, unicode_pairs[char])
 
     return result

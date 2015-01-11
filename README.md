@@ -63,7 +63,7 @@ required more than simple transliteration.
 ## Extra Parameters
 
 - replace_turkish: Replace common Turkish latin letters to be replaced with similar ascii representation.
-- unicode_pair: You can give a dictionary of unicode characters with their replacement values. Like: {u'\xe9', 'e'} - é will be replaced with e
+- unicode_pairs: You can give a dictionary of unicode characters with their replacement values. Like: {u'\xe9', 'e'} - é will be replaced with e
 
 
 ## TODO
