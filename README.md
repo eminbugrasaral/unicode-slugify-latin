@@ -20,7 +20,7 @@ required more than simple transliteration.
 
 ## Turkish Hack
 
-- Replaces special Turkish chars with similar ascii codes.
+- Replaces special Turkish chars with similar ascii representations.
 - Problem: I want Turkish users with English keyboards to be able to search through my Turkish strings.
 - Solution: Slugify that Turkish string by enabling Turkish replacement, and match this string with the slugified search word.
 - Example: Strore "Sabancı Üniversitesi" as "sabanci-universitesi" and then users will be able to search with any combination like "Sabanci", "Sabancı" and "SABANCI".
