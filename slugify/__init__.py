@@ -39,22 +39,14 @@ TURKISH_LETTERS = {
     u'\xee': 'i'
 }
 
-ALL_TURKISH_LETTERS = {
-    u'\u0131': 'i',
+CAPITAL_TURKISH_LETTERS = {
     u'\u0130': 'I',
-    u'\u015f': 's',
     u'\u015e': 'S',
-    u'\xe7': 'c',
     u'\xc7': 'C',
-    u'\u011f': 'g',
     u'\u011e': 'G',
-    u'\xf6': 'o',
     u'\xd6': 'O',
-    u'\xfc': 'u',
     u'\xdc': 'U',
-    u'\xe2': 'a',
     u'\xc2': 'A',
-    u'\xee': 'i',
     u'\xce': 'I'
 }
 
@@ -79,12 +71,13 @@ def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False, unic
 
     # Turkish hack
     if replace_turkish:
-        if lower:
-            for letter in TURKISH_LETTERS:
-                new = new.replace(letter, TURKISH_LETTERS[letter])
-        else:
-            for letter in ALL_TURKISH_LETTERS:
-                new = new.replace(letter, ALL_TURKISH_LETTERS[letter])
+
+        for letter in TURKISH_LETTERS:
+            new = new.replace(letter, TURKISH_LETTERS[letter])
+
+        if not lower:
+            for letter in CAPITAL_TURKISH_LETTERS:
+                new = new.replace(letter, CAPITAL_TURKISH_LETTERS[letter])
 
     # Replace with pair dictionary
     if isinstance(unicode_pairs, dict):
