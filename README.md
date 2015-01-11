@@ -59,6 +59,10 @@ required more than simple transliteration.
 - Ö -> O
 - ü -> u
 - Ü -> U
+- â -> a
+- Â -> A
+- î -> i
+- Î -> I
 
 ## Extra Parameters
 

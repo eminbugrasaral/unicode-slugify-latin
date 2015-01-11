@@ -34,7 +34,9 @@ TURKISH_LETTERS = {
     u'\xe7': 'c',
     u'\u011f': 'g',
     u'\xf6': 'o',
-    u'\xfc': 'u'
+    u'\xfc': 'u',
+    u'\xe2': 'a',
+    u'\xee': 'i'
 }
 
 ALL_TURKISH_LETTERS = {
@@ -49,7 +51,11 @@ ALL_TURKISH_LETTERS = {
     u'\xf6': 'o',
     u'\xd6': 'O',
     u'\xfc': 'u',
-    u'\xdc': 'U'
+    u'\xdc': 'U',
+    u'\xe2': 'a',
+    u'\xc2': 'A',
+    u'\xee': 'i',
+    u'\xce': 'I'
 }
 
 def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False, unicode_pairs=None):
