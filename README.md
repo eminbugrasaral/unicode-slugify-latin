@@ -69,7 +69,6 @@ required more than simple transliteration.
 ## TODO
 
 - Tests for Turkish hack is missing.
-- Add tests for unicode_pair
 
 ## Sponsors
 
