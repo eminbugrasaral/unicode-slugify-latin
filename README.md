@@ -60,10 +60,16 @@ required more than simple transliteration.
 - ü -> u
 - Ü -> U
 
+## Extra Parameters
+
+- replace_turkish: Replace common Turkish latin letters to be replaced with similar ascii representation.
+- unicode_pair: You can give a dictionary of unicode characters with their replacement values. Like: {u'\xe9', 'e'} - é will be replaced with e
+
+
 ## TODO
 
 - Tests for Turkish hack is missing.
-
+- Add tests for unicode_pair
 
 ## Sponsors
 
