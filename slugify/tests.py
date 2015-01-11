@@ -1,4 +1,4 @@
-    # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import six
 import unittest
 from nose.tools import eq_
@@ -17,8 +17,8 @@ def test_slugify():
     def check(x, y):
         eq_(slugify(x), y)
 
-    def check_unicode_pair(x, y):
-        eq_(slugify(x, unicode_pairs=unicode_pairs), y)
+    def check_unicode_pairs(x, y):
+        eq_(slugify(x, ok=u'-_~\xe9', unicode_pairs=unicode_pairs), y)
 
     s = [('xx x  - "#$@ x', 'xx-x-x'),
          (u'Bän...g (bang)', u'bäng-bang'),
@@ -46,7 +46,7 @@ def test_slugify():
         yield check, val, expected
 
     for val, expected in s_unicode_pair:
-        yield check_unicode_pair, val, expected
+        yield check_unicode_pairs, val, expected
 
 class SmartTextTestCase(unittest.TestCase):
 
@@ -73,19 +73,3 @@ class SmartTextTestCase(unittest.TestCase):
             if six.PY3:
                 def __str__(self):
                     return 'ŠĐĆŽćžšđ'
-
-                def __bytes__(self):
-                    return b'Foo'
-            else:
-                def __str__(self):
-                    return b'Foo'
-
-                def __unicode__(self):
-                    return '\u0160\u0110\u0106\u017d\u0107\u017e\u0161\u0111'
-
-        self.assertEqual(smart_text(TestClass()),
-                         '\u0160\u0110\u0106\u017d\u0107\u017e\u0161\u0111')
-        self.assertEqual(smart_text(1), '1')
-        self.assertEqual(smart_text('foo'), 'foo')
-        self.assertEqual(smart_text(u), u)
-
