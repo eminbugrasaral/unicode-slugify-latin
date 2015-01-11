@@ -78,3 +78,5 @@ required more than simple transliteration.
 ## Contact
 
 - Website: http://www.eminbugrasaral.com
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/eminbugrasaral/unicode-slugify-turkish/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
