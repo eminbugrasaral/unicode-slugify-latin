@@ -72,16 +72,16 @@ def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False, unic
     # Turkish hack
     if replace_turkish:
 
-        for char, new_char in TURKISH_LETTERS.iteritems():
+        for char, new_char in TURKISH_LETTERS.items():
             new = new.replace(char, new_char)
 
         if not lower:
-            for char, new_char in CAPITAL_TURKISH_LETTERS.iteritems():
+            for char, new_char in CAPITAL_TURKISH_LETTERS.items():
                 new = new.replace(char, new_char)
 
     # Replace with pair dictionary
     if isinstance(unicode_pairs, dict):
-        for char, new_char in unicode_pairs.iteritems():
+        for char, new_char in unicode_pairs.items():
             new = new.replace(char, new_char)
 
     return new
