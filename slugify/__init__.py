@@ -68,20 +68,19 @@ def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False, unic
     new = ''.join(rv).strip()
     if not spaces:
         new = re.sub('[-\s]+', '-', new)
-    result = new.lower() if lower else new
+
+    # Replace with pair dictionary
+    if unicode_pairs and isinstance(unicode_pairs, dict):
+        for char in unicode_pairs:
+            new = new.replace(char, unicode_pairs[char])
 
     # Turkish hack
     if replace_turkish:
         if lower:
             for letter in TURKISH_LETTERS:
-                result = result.replace(letter, TURKISH_LETTERS[letter])
+                new = new.replace(letter, TURKISH_LETTERS[letter])
         else:
             for letter in ALL_TURKISH_LETTERS:
-                result = result.replace(letter, ALL_TURKISH_LETTERS[letter])
+                new = new.replace(letter, ALL_TURKISH_LETTERS[letter])
 
-    # Replace with pair dictionary
-    if unicode_pairs and isinstance(unicode_pairs, dict):
-        for char in unicode_pairs:
-            result = result.replace(char, unicode_pairs[char])
-
-    return result
+    return new.lower() if lower else new
