@@ -12,13 +12,13 @@ u = u'Ελληνικά'
 def test_slugify():
     x = '-'.join([u, u])
     y = ' - '.join([u, u])
-    unicode_pair = {u'\u20ac': 'E', u'\xe9': 'e'}
+    unicode_pairs = {u'\u20ac': 'E', u'\xe9': 'e'}
 
     def check(x, y):
         eq_(slugify(x), y)
 
     def check_unicode_pair(x, y):
-        eq_(slugify(x, unicode_pair=unicode_pair), y)
+        eq_(slugify(x, unicode_pairs=unicode_pairs), y)
 
     s = [('xx x  - "#$@ x', 'xx-x-x'),
          (u'Bän...g (bang)', u'bäng-bang'),
@@ -89,11 +89,4 @@ class SmartTextTestCase(unittest.TestCase):
         self.assertEqual(smart_text(1), '1')
         self.assertEqual(smart_text('foo'), 'foo')
         self.assertEqual(smart_text(u), u)
-
-
-class AdditionalParameterTestCase(unittest.TestCase):
-
-    def test_new_parameter_unicode_pair(self):
-        """  Check is unicode_pair parameter is working well. """
-
 
