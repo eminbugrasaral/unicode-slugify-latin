@@ -1,5 +1,10 @@
 [![Build Status](https://travis-ci.org/eminbugrasaral/unicode-slugify-latin.svg?branch=master)](https://travis-ci.org/eminbugrasaral/unicode-slugify-latin)
 
+**Links**
+
+| PyPi: https://pypi.python.org/pypi/unicode-slugify-latin
+| Github: https://github.com/eminbugrasaral/unicode-slugify-latin
+
 # Unicode Slugify (with Latin Hack)
 
 Unicode Slugify is a slugifier that generates unicode slugs.  It was originally
