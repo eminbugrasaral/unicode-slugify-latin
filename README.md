@@ -75,11 +75,6 @@ required more than simple transliteration.
 - replace_latin: Replace common Latin letters to be replaced with similar ascii representation.
 - unicode_pairs: You can give a dictionary of unicode characters with their replacement values. Like: {u'\xe9', 'e'} - é will be replaced with e
 
-
-## TODO
-
-- Tests for Latin hack is missing.
-
 ## Sponsors
 
 - This library is being used in The Volt Ride Sharing App (http://thevoltapp.com)

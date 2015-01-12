@@ -17,6 +17,9 @@ def test_slugify():
     def check(x, y):
         eq_(slugify(x), y)
 
+    def check_replace_latin(x, y):
+        eq_(slugify(x, ok=u'-_~\xe9', replace_latin=True), y)
+
     def check_unicode_pairs(x, y):
         eq_(slugify(x, ok=u'-_~\xe9', unicode_pairs=unicode_pairs), y)
 
@@ -38,13 +41,19 @@ def test_slugify():
          (u'x𘍿', u'x'),
          (u'ϧ΃𘒬𘓣',  u'\u03e7'),
          (u'¿x', u'x'),
+         (u'Bakıcı geldi', u'bak\u0131c\u0131-geldi')
         ]
+
+    s_replace_latin = [(u'Bakıcı geldi', u'bakici-geldi')]
 
     s_unicode_pair = [(u'This is e with a trail: \xe9', u'this-is-e-with-a-trail-e'),
                       (u'\u0131 this is i without a dot', u'bla-this-is-i-without-a-dot')]
 
     for val, expected in s:
         yield check, val, expected
+
+    for val, expected in s_replace_latin:
+        yield check_replace_latin, val, expected
 
     for val, expected in s_unicode_pair:
         yield check_unicode_pairs, val, expected
