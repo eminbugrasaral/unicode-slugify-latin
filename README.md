@@ -3,6 +3,7 @@
 **Links**
 
 PyPi: https://pypi.python.org/pypi/unicode-slugify-latin
+
 Github: https://github.com/eminbugrasaral/unicode-slugify-latin
 
 # Unicode Slugify (with Latin Hack)
