@@ -12,16 +12,15 @@ u = u'Ελληνικά'
 def test_slugify():
     x = '-'.join([u, u])
     y = ' - '.join([u, u])
-    unicode_pairs = {u'\u20ac': 'E', u'\xe9': 'e', u'\u0131': 'bla'}
 
     def check(x, y):
         eq_(slugify(x), y)
 
     def check_replace_latin(x, y):
-        eq_(slugify(x, ok=u'-_~\xe9', replace_latin=True), y)
+        eq_(slugify(x, replace_latin=True), y)
 
-    def check_unicode_pairs(x, y):
-        eq_(slugify(x, ok=u'-_~\xe9', unicode_pairs=unicode_pairs), y)
+    def check_replace_latin_capital(x, y):
+        eq_(slugify(x, lower=False, replace_latin=True), y)
 
     s = [('xx x  - "#$@ x', 'xx-x-x'),
          (u'Bän...g (bang)', u'bäng-bang'),
@@ -41,22 +40,23 @@ def test_slugify():
          (u'x𘍿', u'x'),
          (u'ϧ΃𘒬𘓣',  u'\u03e7'),
          (u'¿x', u'x'),
-         (u'Bakıcı geldi', u'bak\u0131c\u0131-geldi')
-        ]
+         (u'Bakıcı geldi', u'bak\u0131c\u0131-geldi'),
+         (u'Bäuma means tree', u'b\xe4uma-means-tree')]
 
-    s_replace_latin = [(u'Bakıcı geldi', u'bakici-geldi')]
+    replace_latin = [(u'Bakıcı geldi', u'bakici-geldi'), (u'Bäuma means tree', u'bauma-means-tree')]
 
-    s_unicode_pair = [(u'This is e with a trail: \xe9', u'this-is-e-with-a-trail-e'),
-                      (u'\u0131 this is i without a dot', u'bla-this-is-i-without-a-dot')]
+    replace_latin_capital = [(u'BÄUMA MEANS TREE', u'BAUMA-MEANS-TREE'),
+                             (u'EMİN WAS HERE', u'EMIN-WAS-HERE')]
 
     for val, expected in s:
         yield check, val, expected
 
-    for val, expected in s_replace_latin:
+    for val, expected in replace_latin:
         yield check_replace_latin, val, expected
 
-    for val, expected in s_unicode_pair:
-        yield check_unicode_pairs, val, expected
+    for val, expected in replace_latin_capital:
+        yield check_replace_latin_capital, val, expected
+
 
 class SmartTextTestCase(unittest.TestCase):
 
@@ -83,3 +83,19 @@ class SmartTextTestCase(unittest.TestCase):
             if six.PY3:
                 def __str__(self):
                     return 'ŠĐĆŽćžšđ'
+
+                def __bytes__(self):
+                    return b'Foo'
+            else:
+                def __str__(self):
+                    return b'Foo'
+
+                def __unicode__(self):
+                    return '\u0160\u0110\u0106\u017d\u0107\u017e\u0161\u0111'
+
+        self.assertEqual(smart_text(TestClass()),
+                         '\u0160\u0110\u0106\u017d\u0107\u017e\u0161\u0111')
+        self.assertEqual(smart_text(1), '1')
+        self.assertEqual(smart_text('foo'), 'foo')
+        self.assertEqual(smart_text(u), u)
+        
