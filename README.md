@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/eminbugrasaral/unicode-slugify-turkish.svg?branch=master)](https://travis-ci.org/eminbugrasaral/unicode-slugify-turkish)
+[![Build Status](https://travis-ci.org/eminbugrasaral/unicode-slugify-latin.svg?branch=master)](https://travis-ci.org/eminbugrasaral/unicode-slugify-latin)
 
-# Unicode Slugify (with Turkish Hack)
+# Unicode Slugify (with Latin Hack)
 
 Unicode Slugify is a slugifier that generates unicode slugs.  It was originally
 used in the Firefox Add-ons web site to generate slugs for add-ons and add-on
@@ -9,7 +9,7 @@ required more than simple transliteration.
 
 ## Install
 
-    pip install unicode-slugify-turkish
+    pip install unicode-slugify-latin
 
 ## Usage
 
@@ -18,31 +18,31 @@ required more than simple transliteration.
     >>> slugify.slugify(u'Bän...g (bang)')
     u'bäng-bang'
 
-## Turkish Hack
+## Latin Hack
 
-- Replaces special Turkish chars with similar ascii representations.
-- Problem: I want Turkish users with English keyboards to be able to search through my Turkish strings.
-- Solution: Slugify that Turkish string by enabling Turkish replacement, and match this string with the slugified search word.
+- Replaces special Latin chars with similar ascii representations.
+- Problem: I want users who speak Latin languages with English keyboards to be able to search through my Latin strings.
+- Solution: Slugify that Latin string by enabling Latin replacement, and match this string with the slugified search word.
 - Example: Strore "Sabancı Üniversitesi" as "sabanci-universitesi" and then users will be able to search with any combination like "Sabanci", "Sabancı" and "SABANCI".
-- Note: Do not forget to slugify both strings with replace_turkish=True
+- Note: Do not forget to slugify both strings with replace_latin=True
 
 ## Example
 
     >>> from slugify import slugify
 
-    >>> string_without_turkish = slugify(u'ıspanaklı boğaz turşusu', replace_turkish=True)
+    >>> string_without_latin_letters = slugify(u'ıspanaklı boğaz turşusu', replace_latin=True)
     u'ispanakli-bogaz-tursusu'
 
-    >>> slugify(u'Ispanakli Bogaz Tursusu') == string_without_turkish
+    >>> slugify(u'Ispanakli Bogaz Tursusu') == string_without_latin_letters
     True
 
-    >>> u'Bogazici'.lower() in slugify(u'boğaziçi', replace_turkish=True)
+    >>> u'Bogazici'.lower() in slugify(u'boğaziçi', replace_latin=True)
     True
     
-    >>> slugify(u'çiçek', replace_turkish=True) in slugify(u'ÇİÇEK', replace_turkish=True)
+    >>> slugify(u'çiçek', replace_turkish=True) in slugify(u'ÇİÇEK', replace_latin=True)
     True
     
-    >>> u'cicek' in slugify(u'ÇİÇEK', replace_turkish=True)
+    >>> u'cicek' in slugify(u'ÇİÇEK', replace_latin=True)
     True
 
 ## List of common latin letters to be replaced
@@ -70,15 +70,15 @@ required more than simple transliteration.
 - ğ -> g
 - Ğ -> G
 
-## Extra Parameters
+## New parameters after this fork
 
-- replace_turkish: Replace common Turkish latin letters to be replaced with similar ascii representation.
+- replace_latin: Replace common Latin letters to be replaced with similar ascii representation.
 - unicode_pairs: You can give a dictionary of unicode characters with their replacement values. Like: {u'\xe9', 'e'} - é will be replaced with e
 
 
 ## TODO
 
-- Tests for Turkish hack is missing.
+- Tests for Latin hack is missing.
 
 ## Sponsors
 
