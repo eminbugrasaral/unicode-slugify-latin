@@ -29,23 +29,23 @@ SLUG_OK = '-_~'
 SLUG_REPLACE = ':;/'
 
 TURKISH_LETTERS = {
-    u'\u0131': 'i',
-    u'\u015f': 's',
-    u'\xe7': 'c',
-    u'\u011f': 'g',
-    u'\xf6': 'o',
-    u'\xfc': 'u',
+    u'\N{LATIN SMALL LETTER DOTLESS I}': 'i',
+    u'\N{LATIN SMALL LETTER S WITH CEDILLA}': 's',
+    u'\N{LATIN SMALL LETTER C WITH CEDILLA}': 'c',
+    u'\N{LATIN SMALL LETTER G WITH BREVE}': 'g',
+    u'\N{LATIN SMALL LETTER O WITH DIAERESIS}': 'o',
+    u'\N{LATIN SMALL LETTER U WITH DIAERESIS}': 'u',
     u'\xe2': 'a',
     u'\xee': 'i'
 }
 
 CAPITAL_TURKISH_LETTERS = {
-    u'\u0130': 'I',
-    u'\u015e': 'S',
-    u'\xc7': 'C',
-    u'\u011e': 'G',
-    u'\xd6': 'O',
-    u'\xdc': 'U',
+    u'\N{LATIN CAPITAL LETTER I WITH DOT ABOVE}': 'I',
+    u'\N{LATIN CAPITAL LETTER S WITH CEDILLA}': 'S',
+    u'\N{LATIN CAPITAL LETTER C WITH CEDILLA}': 'C',
+    u'\N{LATIN CAPITAL LETTER G WITH BREVE}': 'G',
+    u'\N{LATIN CAPITAL LETTER O WITH DIAERESIS}': 'O',
+    u'\N{LATIN CAPITAL LETTER U WITH DIAERESIS}': 'U',
     u'\xc2': 'A',
     u'\xce': 'I'
 }
