@@ -45,24 +45,30 @@ required more than simple transliteration.
     >>> u'cicek' in slugify(u'ÇİÇEK', replace_turkish=True)
     True
 
-## List of common Turkish latin letters to be replaced
+## List of common latin letters to be replaced
 
-- ı -> i
-- İ -> I
+- ı, ì, í, î, ï -> i
+- İ, Ì, Í, Î, Ï -> I
+- ö, ó, ò, ô, õ, ø -> o
+- Ö, Ò, Ó, Ô, Õ, Ø -> O
+- ü, ù, ú, û -> u
+- Ü, Ù, Ú, Û -> U
+- à, á, â, ã, ä, å -> a
+- À, Á, Â, Ã, Ä, Å -> A
+- æ -> ae
+- Æ -> AE
+- è, é, ê, ë -> e
+- È, É, Ê, Ë -> E
+- ñ -> n
+- Ñ -> N
+- ý, ÿ -> y
+- Ý, Ÿ -> Y
 - ş -> s
 - Ş -> S
 - ç -> c
 - Ç -> C
 - ğ -> g
 - Ğ -> G
-- ö -> o
-- Ö -> O
-- ü -> u
-- Ü -> U
-- â -> a
-- Â -> A
-- î -> i
-- Î -> I
 
 ## Extra Parameters
 
