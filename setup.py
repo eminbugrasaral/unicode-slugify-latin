@@ -10,7 +10,7 @@ setup(
     author_email='jbalogh@mozilla.com, dd@mozilla.com, eminbugrasaral@me.com',
     maintainer='Emin Bugra Saral',
     maintainer_email='eminbugrasaral@me.com',
-    url='http://github.com/eminbugrasaral/unicode-slugify-turkish',
+    url='http://github.com/eminbugrasaral/unicode-slugify-latin',
     license='BSD',
     packages=['slugify'],
     include_package_data=True,
