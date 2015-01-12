@@ -5,3 +5,8 @@ pip-log.txt
 dist
 *.egg-info
 .noseids
+*.log
+*.pot
+.DS_Store
+.idea
+/env
