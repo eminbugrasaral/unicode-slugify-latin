@@ -28,7 +28,7 @@ SLUG_OK = '-_~'
 
 SLUG_REPLACE = ':;/'
 
-TURKISH_LETTERS = {
+LATIN_LETTERS = {
     u'\N{LATIN SMALL LETTER DOTLESS I}': 'i',
     u'\N{LATIN SMALL LETTER S WITH CEDILLA}': 's',
     u'\N{LATIN SMALL LETTER C WITH CEDILLA}': 'c',
@@ -65,7 +65,7 @@ TURKISH_LETTERS = {
     u'\N{LATIN SMALL LETTER Y WITH DIAERESIS}': 'y'
 }
 
-CAPITAL_TURKISH_LETTERS = {
+CAPITAL_LATIN_LETTERS = {
     u'\N{LATIN CAPITAL LETTER I WITH DOT ABOVE}': 'I',
     u'\N{LATIN CAPITAL LETTER S WITH CEDILLA}': 'S',
     u'\N{LATIN CAPITAL LETTER C WITH CEDILLA}': 'C',
@@ -102,7 +102,7 @@ CAPITAL_TURKISH_LETTERS = {
     u'\N{LATIN CAPITAL LETTER Y WITH DIAERESIS}': 'Y'
 }
 
-def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False, unicode_pairs=None):
+def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_latin=False, unicode_pairs=None):
     # L and N signify letter/number.
     # http://www.unicode.org/reports/tr44/tr44-4.html#GC_Values_Table
 
@@ -122,13 +122,13 @@ def slugify(s, ok=SLUG_OK, lower=True, spaces=False, replace_turkish=False, unic
     new = new.lower() if lower else new
 
     # Turkish hack
-    if replace_turkish:
+    if replace_latin:
 
-        for char, new_char in TURKISH_LETTERS.items():
+        for char, new_char in LATIN_LETTERS.items():
             new = new.replace(char, new_char)
 
         if not lower:
-            for char, new_char in CAPITAL_TURKISH_LETTERS.items():
+            for char, new_char in CAPITAL_LATIN_LETTERS.items():
                 new = new.replace(char, new_char)
 
     # Replace with pair dictionary
