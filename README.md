@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.org/eminbugrasaral/unicode-slugify-latin.svg?branch=master)](https://travis-ci.org/eminbugrasaral/unicode-slugify-latin)
 
+**Note**
+
+Please use unicode-slugify instead of this library. This was created before I merged the ascii representation feature into the source repo.
+
 **Links**
 
 PyPi: https://pypi.python.org/pypi/unicode-slugify-latin
